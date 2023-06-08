@@ -1,5 +1,6 @@
 import dotenv from "dotenv";
 import { Configuration, OpenAIApi } from "openai";
+import { prompt } from "./data";
 
 dotenv.config();
 
@@ -9,16 +10,15 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
-const prompt = "Traduce hola al inglés"
-
 const getSomething = async () => {
     const result = await openai.createCompletion({
         model: "text-davinci-003",
-        prompt: "La frase Dios no juega los dados.",
+        prompt: prompt,
+        max_tokens: 1000,
         temperature: 0,
     });
     const data = result.data;
-    console.log(data)
+    console.log(data.choices[0].text);
 }
 
 getSomething();
