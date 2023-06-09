@@ -10,7 +10,7 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
-const getSomething = async () => {
+const checkOriginality = async () => {
     const result = await openai.createCompletion({
         model: "text-davinci-003",
         prompt: prompt,
@@ -21,6 +21,6 @@ const getSomething = async () => {
     console.log(data.choices[0].text);
 }
 
-getSomething();
+checkOriginality();
 
 

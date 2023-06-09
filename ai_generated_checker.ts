@@ -13,7 +13,13 @@ const getSomethingElse = async () => {
     console.log(await copyleaks.loginAsync(email, key));
 
     const token = await copyleaks.loginAsync(email, key);
-    const result = await fetch()
+    const url = ""
+    const result = await fetch(url, {
+        headers: {
+            'Content-type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        }
+    })
 }
 
 getSomethingElse();
