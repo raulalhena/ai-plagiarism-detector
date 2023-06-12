@@ -1,7 +1,13 @@
-import { text } from "node:stream/consumers";
+/*
+
+    ***************
+    TEXTS TO VERIFY
+    ***************
+
+*/
 
 export const textToVerify = [
-    `Hello my friend this is a text that I created las wekeend, you can read it and enjoy it. This is my creation:
+    `Hello my friend this is a text that I created last wekeend, you can read it and enjoy it. This is my creation:
 O that this too solid flesh would melt,
 Thaw, and resolve itself into a dew!
 Or that the Everlasting had not fix'd
@@ -90,9 +96,26 @@ De esta manera es fácil hacernos a la idea de que los datos tienen valor y los 
     Quisque fringilla sagittis aliquam. Aenean efficitur nisi elit, non finibus purus sagittis nec. Suspendisse at nulla magna. Morbi consequat at lectus ac dictum. Fusce finibus sit amet nisi quis ultrices. In in odio fermentum, vehicula ex sit amet, ornare erat. Cras posuere vitae velit ac viverra. Vivamus eu gravida dolor, tristique vehicula dui. Integer ut tempor metus. In in interdum augue, a consectetur lorem.`
 ];
 
-// export const prompt = `Please check the following text for plagarism and be created by AI. Here is the text: "${textToVerify[3]}". Give detail on why you think this is plagarized or not. Respond with only valid json object in this format: {"verdict": "plagarized", "detail": "This is plagarized or created by AI because..."}. If it is likely a quote, "verdict" should come back as "Plagarized". If it is likely a AI creation, "verdict" should come back as "AI creation". If it is likely created by ChatGPT, "verdict" should come as "ChatGPT creation". If it is likely a copy from an internet source, "verdict" should come back as "Copied from internet". If it is likely unique, "verdict" should come back as "Not Plagarized.`;
-export const prompt = `Eres un detector de plagio. Por favor, verifica si se considera plagiado o no. Si el texto está en internet, se considera plagio. Si el texto está creado por una inteligencia artificial, se considera plagio. Si el texto forma parte de una obra y no se usa como cita, es plagio. El resultado obtenido de las especificaciones anteriorres estará en un correcto formato JSON de la siguente forma {"internet_source": "true" si procede de una fuente de internet o "false", "ai": "true" si está generado por un sistema de inteligencia artificial o "false" si está creado por humanos, "not-quoted": "true" si no se está usando el texto como una cita o "false" si el texto se está usando como una cita}. Aqui tienes el texto: ${textToVerify[2]}`
 
-// export const prompt = `Eres un detector de plagio. Por favor, verifica si se considera plagiado o no. Si el texto está en internet, se considera plagio. Si el texto está creado por una inteligencia artificial, se considera plagio. Si el texto forma parte de una obra y no se usa como cita, es plagio. Responde "si, está creado con IA" si es afirmativo, o "no, no está creado con IA" si es negativo.  Debes buscar coincidencias con la forma de escritura para poder detectar si está generado el texto con IA o no. El texto es este:${textToVerify[4]}`;
+/*
+
+    *******
+    PROMPTS
+    *******
+
+*/
+
+// export const prompt = `Please check the following text for plagarism and be created by AI. Here is the text: "${textToVerify[1]}". Give detail on why you think this is plagarized or not. Respond with only valid json object in this format: {"verdict": "plagarized", "detail": "This is plagarized or created by AI because..."}. If it is likely a quote, "verdict" should come back as "Plagarized". If it is likely a AI creation, "verdict" should come back as "AI creation". If it is likely created by ChatGPT, "verdict" should come as "ChatGPT creation". If it is likely a copy from an internet source, "verdict" should come back as "Copied from internet". If it is likely unique, "verdict" should come back as "Not Plagarized.`;
+
+
+// export const prompt = `Eres un detector de plagio. Por favor, verifica si se considera plagiado o no. Si el texto está en internet, se considera plagio. Si el texto está creado por una inteligencia artificial, se considera plagio. Si el texto forma parte de una obra y no se usa como cita, es plagio. El resultado obtenido de las especificaciones anteriorres estará en un correcto formato JSON de la siguente forma {"internet_source": "true" si procede de una fuente de internet o "false", "ai": "true" si está generado por un sistema de inteligencia artificial o "false" si está creado por humanos, "not-quoted": "true" si no se está usando el texto como una cita o "false" si el texto se está usando como una cita}. Aqui tienes el texto: ${textToVerify[2]}`
+
+export const prompt = `Eres un detector de plagio. Por favor, verifica si se considera plagiado o no. Si el texto está en internet, se considera plagio. Si el texto está creado por una inteligencia artificial, se considera plagio. Si el texto forma parte de una obra y no se usa como cita, es plagio. Responde "si, está creado con IA" si es afirmativo, o "no, no está creado con IA" si es negativo.  Debes buscar coincidencias con la forma de escritura para poder detectar si está generado el texto con IA o no. El texto es este:${textToVerify[3]}`;
 
 // export const prompt = `Eres un detector de textos creados por inteligencia artificial. Muestra las probabilidades de que un texto está creado por una inteligencia artificial. El resultado muestralo con un número del 1 al 10, siendo el 1 creado por humanos y 10 creado por inteligencia artificial. Los resultados muestralos en un correcto formato JSON con los siguientes valores { "structurayfluidez": valor numerico, "patronespredecibles": valor numerico, "conocimientotecnico": valor numerico }. Basate en la estructura y fluidez de el texto, en la existencia de patrones predecibles y el conocimiento ténico del tema tratado en el texto. Analiza el siguiente texto: ${textToVerify[8]}`;
+
+// export const prompt = `Por favor, analiza el siguiente texto y determina si se ha copiado de una fuente existente en internet. Si se detecta similitud sustancial con una fuente externa, menciona la posible fuente y proporciona detalles específicos sobre las partes del texto que se asemejan. Este es el texto a analizar: ${textToVerify[2]}`;
+
+// export const prompt = `Por favor, analiza el siguiente texto y evalúa si fue generado por una inteligencia artificial. Si encuentras indicios o características que sugieran su creación automatizada, describe cuáles son y proporciona ejemplos específicos dentro del texto que respalden tu evaluación. Ofrece el resultado en un porcentaje, en el que 0% significa escrito por humanos y 100% escrito por una inteligencia artificial. Aquí tienes el texto a analizar: ${textToVerify[4]}`
+
+// export const prompt = `Eres un detector de plagio. Devulve el resultado en un objeto JSON bien formateado. Si el texto está en internet, devuelve { "inet": true }, si no está en internet { "inet": false}. Aquí tienes el texto a analizar: ${textToVerify[3]}`
